@@ -1,6 +1,8 @@
 import React from 'react'
 import Banner from '../Banner'
 import Policy from '../Policy'
+import Ads from '../Ads'
+import NewArrival from '../NewArrival'
 
 
 const Home = () => {
@@ -8,6 +10,8 @@ const Home = () => {
     <>
     <Banner/>
     <Policy/>
+    <Ads/>
+    <NewArrival/>
     </>
   )
 }
