@@ -6,22 +6,65 @@ import Clock from "/src/assets/Clock.png"
 import Watch from "/src/assets/Watch.png"
 import Basket from "/src/assets/Basket.png"
 import Plushie from "/src/assets/Plushie.png"
+// ======================
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+import NextArrow from '../NextArrow'
+import PrevArrow from '../PrevArrow'
+
+// =======================
 
 
 const NewArrival = () => {
+var settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 2,
+    nextArrow: <NextArrow/>,
+     prevArrow: <PrevArrow />
+  };
   return (
    <>
-  <div classNAme="py-6">
     <Container>
-        <h3 className="text-3xl font-bold">New Arrivals</h3>
-        <Flex className="gap-x-8">
-            <Product productImg={Clock} Btxt={"10%"}/>
-            <Product productImg={Watch} Btxt={"New"}/>
-            <Product productImg={Basket} Btxt={"Sale"}/>
-            <Product productImg={Plushie} Btxt={"New"}/>
-        </Flex>
+       <h3 className="text-3xl font-bold">New Arrivals</h3>
+      <Slider {...settings}>
+      <div>
+        <Product productImg={Clock} Btxt={"10%"}/>
+      </div>
+      <div>
+        <Product productImg={Watch} Btxt={"New"}/>
+      </div>
+      <div>
+         <Product productImg={Basket} Btxt={"Sale"}/>
+      </div>
+      <div>
+       <Product productImg={Plushie} Btxt={"New"}/>
+      </div>
+      <div>
+        <Product productImg={Clock} Btxt={"10%"}/>
+      </div>
+      <div>
+        <Product productImg={Watch} Btxt={"New"}/>
+      </div>
+      <div>
+         <Product productImg={Basket} Btxt={"Sale"}/>
+      </div>
+      <div>
+        <Product productImg={Clock} Btxt={"10%"}/>
+      </div>
+      <div>
+        <Product productImg={Watch} Btxt={"New"}/>
+      </div>
+      <div>
+         <Product productImg={Basket} Btxt={"Sale"}/>
+      </div>
+      
+    </Slider>
     </Container>
-  </div>
+ 
    </>
   )
 }

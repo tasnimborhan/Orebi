@@ -10,8 +10,8 @@ import { FaCartShopping } from "react-icons/fa6";
 const Product = ({productImg,Btxt}) => {
   return (
    <>
-   <div className="w-1/4 py-10 group">
-   <div className="relative">
+   <div className=" py-10 group">
+   <div className="relative px-4">
     <Badge className={"absolute top-5 left-5"} badgetxt={Btxt}/>
    <Image imgSrc={productImg} className={"w-full"}/>
    <div className="bg-transparent p-4 opacity-0 group-hover:opacity-100 absolute w-full left-0 bottom-6 duration-700">
