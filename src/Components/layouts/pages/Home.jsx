@@ -3,6 +3,7 @@ import Banner from '../Banner'
 import Policy from '../Policy'
 import Ads from '../Ads'
 import NewArrival from '../NewArrival'
+import DemoData from './DemoData'
 
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
     <Policy/>
     <Ads/>
     <NewArrival/>
+    
     </>
   )
 }
