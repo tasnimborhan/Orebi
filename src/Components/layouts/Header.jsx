@@ -9,10 +9,15 @@ import { FaSearch } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
 import { FaCaretDown } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
+import { ImCross } from "react-icons/im";
+import { useState } from 'react'
+import { useSelector } from 'react-redux'
 
 
 
 const Header = () => {
+  let [showCart, setShowCart]= useState(false)
+   let data = useSelector((state)=>state.addcart.value)
   return (
     <>
    <div className="py-[30px]">
@@ -44,15 +49,41 @@ const Header = () => {
         <input type="text" placeholder='Search Products'className="py-4 px-5 w-[600px] bg-white outline-0" />
           <FaSearch className="absolute right-5 top-1/2 -translate-y-2"/>
       </div>
-      <div className="flex gap-x-6">
+      <div className="flex gap-x-6 relative">
        <div className="flex">
         <FaUser />
         <FaCaretDown />
         </div>
-        <FaShoppingCart />
+        <FaShoppingCart   onClick={()=>setShowCart(!showCart)}/>
       </div>
-      
+
       </Flex>
+      {showCart &&
+      <div classname="h-screen w-[600px] bg-blue-400 absolute right-0 top-0 ">
+      <ImCross onClick={()=>setShowCart(!showCart)} />
+         <ul>
+          <div className="flex bg-slate-300 p-5 justify-between font-semibold">
+            <li> Name</li>
+            <li> Price</li>
+             <li> Quantity</li>
+
+
+          </div>
+                      {data.map(item=>(
+                      <div className="flex justify-between p-5">
+                        <li>{item.title}</li>
+                        <li>{item.price}</li>
+                        <li>{item.quantity}</li>
+                        <li><img className="w-30" src={item.productImg}  /></li>
+                        
+                       
+                      </div>
+                       
+                        ))
+                      }
+          </ul>
+      </div>
+      }
     </Container>
    </div>
     </>

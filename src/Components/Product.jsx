@@ -6,8 +6,20 @@ import Flex from './layouts/pages/Flex'
 import { FaHeart } from "react-icons/fa";
 import { FiRefreshCw } from "react-icons/fi";
 import { FaCartShopping } from "react-icons/fa6";
+import { addtocart } from '../slices/addToCartSlice'
+import { useDispatch } from 'react-redux'
 
-const Product = ({productImg,Btxt}) => {
+const Product = ({productImg,Btxt,title,price}) => {
+  let dispatch= useDispatch()
+  let handleAddtocart =()=>{
+  dispatch (addtocart({
+    title : title,
+    price: price,
+    productImg: productImg,
+    quantity:1 
+  }))
+  }
+
   return (
    <>
    <div className=" py-10 group">
@@ -23,7 +35,7 @@ const Product = ({productImg,Btxt}) => {
         <h3>Compare</h3>
        <FiRefreshCw />
       </div>
-       <div className="flex items-center justify-end gap-x-3">
+       <div className="flex items-center justify-end gap-x-3" onClick={handleAddtocart}>
         <h3>Add To Cart</h3>
         <FaCartShopping />
       </div>
